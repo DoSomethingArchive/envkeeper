@@ -2,9 +2,18 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Envkeeper
+    %title EnvKeeper
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+    %nav.navbar.navbar-dark.bg-inverse.navbar-full
+      .container
+        %ul.nav.navbar-nav
+          %li.nav-item.actives
+            =link_to "EnvKeeper", root_path, { class: :'nav-link' }
+          %li.nav-item
+            =link_to "Settings", settings_path, { class: :'nav-link' }
+
+    .container.m-t-3
+      = yield
