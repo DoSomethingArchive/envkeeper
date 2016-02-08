@@ -1,7 +1,11 @@
-%h1 Editing setting
+.btn-group
+  = link_to settings_path, class: :'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to @setting, class: :'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-info-sign
+    Show
+
+%h1.m-t-2 Editing setting
 
 = render 'form'
-
-= link_to 'Show', @setting
-\|
-= link_to 'Back', settings_path

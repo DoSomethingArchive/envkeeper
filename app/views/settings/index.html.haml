@@ -1,23 +1,26 @@
-%h1 Listing settings
+.btn-group
+  = link_to new_setting_path, class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-plus
+    New setting
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Value
-      %th
-      %th
-      %th
 
-  %tbody
-    - @settings.each do |setting|
+%h1.m-t-2  Listing settings
+
+.table-responsive.m-t-2
+  %table.table.table-striped.table-bordered.table-hover.table-sm
+    %thead
       %tr
-        %td= setting.name
-        %td= setting.value
-        %td= link_to 'Show', setting
-        %td= link_to 'Edit', edit_setting_path(setting)
-        %td= link_to 'Destroy', setting, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Name
+        %th Value
+        %th
+        %th
+        %th
 
-%br
-
-= link_to 'New Setting', new_setting_path
+    %tbody
+      - @settings.each do |setting|
+        %tr
+          %td= setting.name
+          %td= setting.value
+          %td= link_to 'Show', setting
+          %td= link_to 'Edit', edit_setting_path(setting)
+          %td= link_to 'Destroy', setting, :method => :delete, :data => { :confirm => 'Are you sure?' }

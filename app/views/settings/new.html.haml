@@ -1,5 +1,8 @@
-%h1 New setting
+.btn-group
+  = link_to settings_path, class: :'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-list-alt
+    Settings
+
+%h1.m-t-2 New setting
 
 = render 'form'
-
-= link_to 'Back', settings_path

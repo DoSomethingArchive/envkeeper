@@ -1,12 +1,18 @@
-%p#notice= notice
+.btn-group
+  = link_to settings_path, class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_setting_path(@setting), class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
 
-%p
-  %b Name:
-  = @setting.name
-%p
-  %b Value:
-  = @setting.value
+%h1.m-t-2  Show setting
 
-= link_to 'Edit', edit_setting_path(@setting)
-\|
-= link_to 'Back', settings_path
+
+.container
+  %dl.dl-horizontal.m-t-2
+    %dt.col-sm-1   Name:
+    %dd.col-sm-11= @setting.name
+
+    %dt.col-sm-1   Value:
+    %dd.col-sm-11= @setting.value
