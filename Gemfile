@@ -48,7 +48,10 @@ group :development do
   gem 'haml-rails'
 end
 
-# Additional.
+# Frontend.
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'bootstrap-glyphicons'
 gem 'haml'
+
+# Models.
+gem 'friendly_id', '~> 5.1.0'
