@@ -1,16 +1,19 @@
-= form_for @project do |f|
+= form_for @project, html: { class: "form-horizontal m-t-2", role: "form" } do |f|
   - if @project.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@project.errors.count, "error")} prohibited this project from being saved:"
       %ul
         - @project.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :slug
-    = f.text_field :slug
-  .actions
-    = f.submit 'Save'
+  .form-group.row
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+
+  .form-group.row
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary'

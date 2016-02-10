@@ -1,7 +1,11 @@
-%h1 Editing project
+.btn-group
+  = link_to projects_path, class: :'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to @project, class: :'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-info-sign
+    Show
+
+%h1.m-t-2 Editing project
 
 = render 'form'
-
-= link_to 'Show', @project
-\|
-= link_to 'Back', projects_path

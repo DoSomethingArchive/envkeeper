@@ -1,12 +1,15 @@
-%p#notice= notice
+.btn-group
+  = link_to projects_path, class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_project_path(@project), class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
 
-%p
-  %b Name:
-  = @project.name
-%p
-  %b Slug:
-  = @project.slug
+%h1.m-t-2  Show project
 
-= link_to 'Edit', edit_project_path(@project)
-\|
-= link_to 'Back', projects_path
+
+.container
+  %dl.dl-horizontal.m-t-2
+    %dt.col-sm-1   Name:
+    %dd.col-sm-11= @project.name

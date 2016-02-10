@@ -1,5 +1,9 @@
-%h1 New project
+.btn-group
+  = link_to settings_path, class: :'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-list-alt
+    Projects
+
+%h1.m-t-2 New project
 
 = render 'form'
 
-= link_to 'Back', projects_path
