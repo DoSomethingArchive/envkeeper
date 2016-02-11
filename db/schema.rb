@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210231029) do
+ActiveRecord::Schema.define(version: 20160211190633) do
+
+  create_table "environments", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "name"
+    t.string   "uuid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "environments", ["project_id"], name: "index_environments_on_project_id"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
