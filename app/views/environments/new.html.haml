@@ -1,0 +1,12 @@
+.btn-group
+  = link_to project_path(@project), class: :'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-list-alt
+    Back to #{@project.name}
+  = link_to project_environments_path(@project), class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-folder-open
+    Environments
+
+%h1.m-t-2 New environment
+
+= render 'form'
+

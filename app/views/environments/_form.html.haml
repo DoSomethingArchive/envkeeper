@@ -1,0 +1,19 @@
+= form_for [@project, @environment], html: { class: "form-horizontal m-t-2", role: "form" } do |f|
+  - if @environment.errors.any?
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@environment.errors.count, "error")} prohibited this environment from being saved:"
+      %ul
+        - @environment.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group.row
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+
+  .form-group.row
+    .col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary'

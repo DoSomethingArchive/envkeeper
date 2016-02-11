@@ -5,6 +5,12 @@
   = link_to edit_project_path(@project), class: 'btn btn-secondary btn-sm' do
     %span.glyphicon.glyphicon-pencil
     Edit
+  = link_to project_environments_path(@project), class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-folder-open
+    Environments
+  = link_to new_project_environment_path(@project), class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-plus
+    New environment
 
 %h1.m-t-2  Show project
 

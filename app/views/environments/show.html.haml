@@ -1,0 +1,21 @@
+.btn-group
+  = link_to project_path(@project), class: :'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-list-alt
+    Back to #{@project.name}
+  = link_to project_environments_path(@project), class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-folder-open
+    Environments
+  = link_to edit_project_environment_path(@project, @environment), class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+
+%h1.m-t-2  Show environment
+
+
+.container
+  %dl.dl-horizontal.m-t-2
+    %dt.col-sm-1   Name:
+    %dd.col-sm-11= @environment.name
+
+    %dt.col-sm-1   UUID:
+    %dd.col-sm-11= @environment.uuid

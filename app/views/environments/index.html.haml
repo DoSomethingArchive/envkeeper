@@ -1,0 +1,28 @@
+.btn-group
+  = link_to project_path(@project), class: :'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-list-alt
+    Back to #{@project.name}
+  = link_to new_project_environment_path(@project), class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-plus
+    New environment
+
+
+%h1.m-t-2  Listing environments
+
+.table-responsive.m-t-2
+  %table.table.table-striped.table-bordered.table-hover.table-sm
+    %thead
+      %tr
+        %th Name
+        %th
+        %th
+        %th
+
+    %tbody
+      - @environments.each do |environment|
+        %tr
+          %td= environment.name
+          %td= link_to 'Show', [@project, environment]
+          %td= link_to 'Edit', edit_project_environment_path(@project, environment)
+          %td= link_to 'Destroy', [@project, environment], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
