@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211221721) do
+ActiveRecord::Schema.define(version: 20160211232829) do
 
   create_table "environments", force: :cascade do |t|
     t.integer  "project_id"
@@ -53,5 +53,16 @@ ActiveRecord::Schema.define(version: 20160211221721) do
   end
 
   add_index "settings", ["project_id"], name: "index_settings_on_project_id"
+
+  create_table "values", force: :cascade do |t|
+    t.integer  "setting_id"
+    t.integer  "environment_id"
+    t.string   "data"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "values", ["environment_id"], name: "index_values_on_environment_id"
+  add_index "values", ["setting_id"], name: "index_values_on_setting_id"
 
 end
