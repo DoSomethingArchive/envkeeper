@@ -1,4 +1,5 @@
-= form_for @setting, html: { class: "form-horizontal m-t-2", role: "form" } do |f|
+= form_for [@project, @setting], html: { class: "form-horizontal m-t-2", role: "form" } do |f|
+
   - if @setting.errors.any?
     .alert.alert-danger.alert-dismissable{role: "alert"}
       %button.close{type: "button", data: {dismiss: "alert"} }
@@ -13,11 +14,6 @@
     = f.label :name, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :name, class: 'form-control'
-
-  .form-group.row
-    = f.label :value, class: 'col-sm-2 control-label'
-    .col-sm-10
-      = f.text_field :value, class: 'form-control'
 
   .form-group.row
     .col-sm-offset-2.col-sm-10

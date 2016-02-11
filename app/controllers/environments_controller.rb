@@ -26,7 +26,7 @@ class EnvironmentsController < ApplicationController
   # POST /environments.json
   def create
     @environment = Environment.new(environment_params)
-    @environment.project = @project;
+    @environment.project = @project
 
     respond_to do |format|
       if @environment.save
@@ -76,6 +76,6 @@ class EnvironmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def environment_params
-      params[:environment].permit(:name)
+      params.require(:environment).permit(:name)
     end
 end

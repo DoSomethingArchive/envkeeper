@@ -1,8 +1,8 @@
 .btn-group
-  = link_to settings_path, class: :'btn btn-secondary btn-sm' do
+  = link_to project_path(@project), class: :'btn btn-secondary btn-sm' do
     %span.glyphicon.glyphicon-list-alt
-    Back
-  = link_to @setting, class: :'btn btn-secondary btn-sm' do
+    Back to #{@project.name}
+  = link_to project_setting_path(@project, @setting), class: 'btn btn-secondary btn-sm' do
     %span.glyphicon.glyphicon-info-sign
     Show
 

@@ -11,11 +11,8 @@
   = link_to new_project_environment_path(@project), class: 'btn btn-secondary btn-sm' do
     %span.glyphicon.glyphicon-plus
     New environment
+  = link_to new_project_setting_path(@project), class: 'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-plus
+    New setting
 
-%h1.m-t-2  Show project
-
-
-.container
-  %dl.dl-horizontal.m-t-2
-    %dt.col-sm-1   Name:
-    %dd.col-sm-11= @project.name
+%h1.m-t-2= @project.name

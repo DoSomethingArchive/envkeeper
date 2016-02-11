@@ -1,5 +1,5 @@
 .btn-group
-  = link_to new_setting_path, class: 'btn btn-secondary btn-sm' do
+  = link_to new_project_setting_path(@project), class: 'btn btn-secondary btn-sm' do
     %span.glyphicon.glyphicon-plus
     New setting
 
@@ -11,7 +11,6 @@
     %thead
       %tr
         %th Name
-        %th Value
         %th
         %th
         %th
@@ -20,7 +19,6 @@
       - @settings.each do |setting|
         %tr
           %td= setting.name
-          %td= setting.value
-          %td= link_to 'Show', setting
-          %td= link_to 'Edit', edit_setting_path(setting)
-          %td= link_to 'Destroy', setting, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %td= link_to 'Show', [@project, setting]
+          %td= link_to 'Edit', edit_project_setting_path(@project, setting)
+          %td= link_to 'Destroy', [@project, setting], :method => :delete, :data => { :confirm => 'Are you sure?' }

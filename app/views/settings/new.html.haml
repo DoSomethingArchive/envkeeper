@@ -1,7 +1,7 @@
 .btn-group
-  = link_to settings_path, class: :'btn btn-secondary btn-sm' do
+  = link_to project_path(@project), class: :'btn btn-secondary btn-sm' do
     %span.glyphicon.glyphicon-list-alt
-    Settings
+    Back to #{@project.name}
 
 %h1.m-t-2 New setting
 
