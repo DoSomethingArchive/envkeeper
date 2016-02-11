@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :projects do
     resources :environments
-    resources :settings
+    resources :settings, except: [:index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

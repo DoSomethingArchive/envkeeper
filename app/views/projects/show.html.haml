@@ -1,7 +1,7 @@
 .btn-group
   = link_to projects_path, class: 'btn btn-secondary btn-sm' do
     %span.glyphicon.glyphicon-list-alt
-    Back
+    Projects
   = link_to edit_project_path(@project), class: 'btn btn-secondary btn-sm' do
     %span.glyphicon.glyphicon-pencil
     Edit
@@ -11,8 +11,25 @@
   = link_to new_project_environment_path(@project), class: 'btn btn-secondary btn-sm' do
     %span.glyphicon.glyphicon-plus
     New environment
-  = link_to new_project_setting_path(@project), class: 'btn btn-secondary btn-sm' do
+
+%h1.m-t-2= @project.name
+
+.btn-group.m-t-2
+  = link_to new_project_setting_path(@project), class: 'btn btn-primary btn-sm' do
     %span.glyphicon.glyphicon-plus
     New setting
 
-%h1.m-t-2= @project.name
+.table-responsive.m-t-1
+  %table.table.table-striped.table-bordered.table-hover.table-sm
+    %thead
+      %tr
+        %th Name
+        %th
+        %th
+
+    %tbody
+      - @project.settings.each do |setting|
+        %tr
+          %td= link_to setting.name, [@project, setting]
+          %td= link_to 'Edit', edit_project_setting_path(@project, setting)
+          %td= link_to 'Destroy', [@project, setting], :method => :delete, :data => { :confirm => 'Are you sure?' }

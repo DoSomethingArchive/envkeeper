@@ -1,12 +1,6 @@
 class SettingsController < ApplicationController
   before_action :set_setting, only: [:show, :edit, :update, :destroy]
-  before_action :set_parent, only: [:index, :new, :create]
-
-  # GET /settings
-  # GET /settings.json
-  def index
-    @settings = Setting.all
-  end
+  before_action :set_parent, only: [:new, :create]
 
   # GET /settings/1
   # GET /settings/1.json
