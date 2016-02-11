@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211190633) do
+ActiveRecord::Schema.define(version: 20160211214246) do
 
   create_table "environments", force: :cascade do |t|
     t.integer  "project_id"
@@ -48,8 +48,11 @@ ActiveRecord::Schema.define(version: 20160211190633) do
   create_table "settings", force: :cascade do |t|
     t.string   "name"
     t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "environment_id"
   end
+
+  add_index "settings", ["environment_id"], name: "index_settings_on_environment_id"
 
 end
