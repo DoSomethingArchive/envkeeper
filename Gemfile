@@ -46,6 +46,9 @@ group :development do
 
   # Haml Rails generators.
   gem 'haml-rails'
+
+  # Reduces log noise.
+  gem 'quiet_assets'
 end
 
 # Frontend.
