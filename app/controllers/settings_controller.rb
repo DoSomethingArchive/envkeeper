@@ -1,5 +1,5 @@
 class SettingsController < ApplicationController
-  before_action :set_setting, only: [:show, :edit, :update, :destroy, :versions]
+  before_action :set_setting, only: [:show, :edit, :update, :destroy, :versions, :versions_revert]
   before_action :set_parent, only: [:new, :create]
   before_action :prefill_all_environments, only: [:edit, :show]
 
@@ -64,6 +64,15 @@ class SettingsController < ApplicationController
 
   def versions
     @value = Value.find(params[:value_id])
+  end
+
+  def versions_revert
+    @value = Value.find(params[:value_id])
+    version = @value.versions.find(params[:version_id])
+    if version
+      version.reify.save
+      redirect_to versions_project_setting_path(@project, @value.setting, @value), notice: 'Reverted.'
+    end
   end
 
   private

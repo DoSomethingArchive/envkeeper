@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
         member do
           get 'versions/:value_id', :action => 'versions', as: 'versions'
+          put 'versions/:value_id/:version_id', :action => 'versions_revert', as: 'versions_revert'
         end
 
       end

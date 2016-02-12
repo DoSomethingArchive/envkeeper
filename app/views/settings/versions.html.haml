@@ -18,6 +18,7 @@
         %th Version
         %th Date
         %th Value
+        %th
 
     %tbody
       %tr
@@ -27,4 +28,5 @@
           %td= version.created_at
           %td
             %code= version.index == 0 ? @value.data : version.reify.data
+          %td= link_to 'Revert', versions_revert_project_setting_path(@project, @value.setting, @value, version.id), :method => :put, :data => { :confirm => 'Are you sure?' } unless version.index == 0
 
