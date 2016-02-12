@@ -15,5 +15,5 @@
       %dt.col-sm-2=  value.environment.name
       %dd.col-sm-10
         %code= value.data
-        - if value.versions.size > 0
+        - if value.versions.size > 1
           %small= link_to "(versions: #{value.versions.size})", versions_project_setting_path(@project, value.setting, value)

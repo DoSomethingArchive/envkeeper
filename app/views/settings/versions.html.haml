@@ -21,15 +21,10 @@
 
     %tbody
       %tr
-        %td 0
-        %td= @value.updated_at
-        %td
-          %code= @value.data
-
       - @value.versions.each do |version|
         %tr
-          %td= version.id
-          %td= version.reify.updated_at
+          %td= version.index
+          %td= version.created_at
           %td
-            %code= version.reify.data
+            %code= version.index == 0 ? @value.data : version.reify.data
 
