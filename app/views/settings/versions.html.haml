@@ -1,0 +1,35 @@
+.btn-group
+  = link_to project_setting_path(@project, @setting), class: :'btn btn-secondary btn-sm' do
+    %span.glyphicon.glyphicon-list-alt
+    Back to
+    %code= @setting.name
+
+%h1.m-t-2 Versions history
+%h3
+  = @value.environment.name
+  %span.glyphicon.glyphicon-chevron-right
+  %code= @setting.name
+
+
+.table-responsive.m-t-2
+  %table.table.table-striped.table-bordered.table-hover.table-sm
+    %thead
+      %tr
+        %th Version
+        %th Date
+        %th Value
+
+    %tbody
+      %tr
+        %td 0
+        %td= @value.updated_at
+        %td
+          %code= @value.data
+
+      - @value.versions.each do |version|
+        %tr
+          %td= version.id
+          %td= version.reify.updated_at
+          %td
+            %code= version.reify.data
+

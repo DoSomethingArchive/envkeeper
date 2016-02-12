@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   github_authenticate(org: ENV['GITHUB_ORG_NAME']) do
     resources :projects do
       resources :environments
-      resources :settings, except: [:index]
+      resources :settings, except: [:index] do
+
+        member do
+          get 'versions/:value_id', :action => 'versions', as: 'versions'
+        end
+
+      end
     end
   end
 

@@ -1,5 +1,5 @@
 class SettingsController < ApplicationController
-  before_action :set_setting, only: [:show, :edit, :update, :destroy]
+  before_action :set_setting, only: [:show, :edit, :update, :destroy, :versions]
   before_action :set_parent, only: [:new, :create]
   before_action :prefill_all_environments, only: [:edit, :show]
 
@@ -60,6 +60,10 @@ class SettingsController < ApplicationController
       format.html { redirect_to project_url(@project), notice: 'Setting was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def versions
+    @value = Value.find(params[:value_id])
   end
 
   private
