@@ -18,12 +18,15 @@
         %th
         %th
         %th
+        %th
 
     %tbody
       - @environments.each do |environment|
         %tr
           %td= environment.name
-          %td= environment.uuid
+          %td
+            %code= environment.uuid
+          %td= link_to 'List settings', setting_path(environment.uuid, :format => 'json')
           %td= link_to 'Show', [@project, environment]
           %td= link_to 'Edit', edit_project_environment_path(@project, environment)
           %td= link_to 'Destroy', [@project, environment], :method => :delete, :data => { :confirm => 'Are you sure?' }

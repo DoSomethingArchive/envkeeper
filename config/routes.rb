@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   get 'settings/:uuid',
     to: 'environments#list_setting_by_uuid',
-    format: true
+    as: 'setting',
+    :format => true,
+    constraints: { format: 'json' }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
