@@ -63,6 +63,12 @@ class EnvironmentsController < ApplicationController
     end
   end
 
+  # GET settings/:uuid
+  def list_setting_by_uuid
+    environment = Environment.find_by_uuid(params[:uuid])
+    @values = environment.values
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_environment
