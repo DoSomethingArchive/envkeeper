@@ -22,11 +22,17 @@
 
     %tbody
       %tr
-      - @value.versions.each do |version|
+        %td Current
+        %td= @value.updated_at
+        %td
+          %code= @value.data
+        %td
+
+      - @versions.each do |version|
         %tr
           %td= version.index
           %td= version.created_at
           %td
-            %code= version.index == 0 ? @value.data : version.reify.data
-          %td= link_to 'Revert', versions_revert_project_setting_path(@project, @value.setting, @value, version.id), :method => :put, :data => { :confirm => 'Are you sure?' } unless version.index == 0
+            %code=version.reify.data
+          %td= link_to 'Revert', versions_revert_project_setting_path(@project, @value.setting, @value, version.id), :method => :put, :data => { :confirm => 'Are you sure?' }
 

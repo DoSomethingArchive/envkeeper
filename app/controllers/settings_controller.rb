@@ -64,6 +64,8 @@ class SettingsController < ApplicationController
 
   def versions
     @value = Value.find(params[:value_id])
+    @versions = @value.versions.reverse
+    @versions.pop
   end
 
   def versions_revert
