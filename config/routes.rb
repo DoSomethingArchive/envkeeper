@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :projects do
-    resources :environments
-    resources :settings, except: [:index]
+
+  github_authenticate(org: ENV['GITHUB_ORG_NAME']) do
+    resources :projects do
+      resources :environments
+      resources :settings, except: [:index]
+    end
   end
 
   get 'settings/:uuid',

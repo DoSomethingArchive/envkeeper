@@ -58,3 +58,6 @@ gem 'haml'
 
 # Models.
 gem 'friendly_id', '~> 5.1.0'
+
+# Auth
+gem 'warden-github-rails'
