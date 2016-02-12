@@ -1,5 +1,6 @@
 class Environment < ActiveRecord::Base
   belongs_to :project
+  has_many :values
   has_many :settings, through: :values
 
   validates :project_id, presence: true

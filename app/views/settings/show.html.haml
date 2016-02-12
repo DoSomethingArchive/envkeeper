@@ -6,9 +6,12 @@
     %span.glyphicon.glyphicon-pencil
     Edit
 
-%h1.m-t-2  Show setting
+%h1.m-t-2
+  %code= @setting.name
 
 .container
   %dl.dl-horizontal.m-t-2
-    %dt.col-sm-1   Name:
-    %dd.col-sm-11= @setting.name
+    - @setting.values.each do |value|
+      %dt.col-sm-2=  value.environment.name
+      %dd.col-sm-10
+        %code= value.data

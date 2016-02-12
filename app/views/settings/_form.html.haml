@@ -15,6 +15,14 @@
     .col-sm-10
       = f.text_field :name, class: 'form-control'
 
+  %h3.m-b-2.m-t-3 Values:
+  = f.fields_for :values do |builder|
+    = builder.hidden_field :environment_id
+    .form-group.row
+      = builder.label :data, builder.object.environment.name, class: 'col-sm-2 control-label'
+      .col-sm-10
+        = builder.text_field :data, class: 'form-control'
+
   .form-group.row
     .col-sm-offset-2.col-sm-10
       = f.submit class: 'btn btn-primary'
