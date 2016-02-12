@@ -58,6 +58,7 @@ gem 'haml'
 
 # Models.
 gem 'friendly_id', '~> 5.1.0'
+gem 'paper_trail'
 
 # Auth
 gem 'warden-github-rails'
